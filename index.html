@@ -22,8 +22,24 @@
                 <th>Length</th>
                  <th>Status</th>
                  </tr>
-           
-        </tbody>
-    </table>
+            </tbody>
+            </table>
+                 <button id="open-form" type="button">Add Book</button> <!-- activate pop-up div -->
+                   
+                    <div class="form"><!-- absolute positioning expands-->
+                    <form action="#" method="post" id="book-form"><!--onsubmit can call a function to create book variable-->
+                    <ul>
+                        <h3>Please enter the following:</h3><br>
+                        <li><label for="title">Title:</label><input type="text" id="title" name="title" value="title"></li>
+                        <li><label for="author">Author:</label><input type="text" id="author" name="author" value="author"></li>
+                        <li><label for="length">Length (number of pages):</label><input type="number" id="length" name="length" value="length" min="0"></li>
+                        <h5>Have you read the book?</h5><!--radio buttons for status-->
+                        <label for="status-y">Yes</label><input type="radio" id="status-y" name="status" value="Yes">
+                        <label for="status-n">No</label><input type="radio" id="status-n" name="status" value="No">
+                    </ul>
+                    <button type="submit" id="submit" >Submit</button><!--submit button, might have to make another div container for flex, preventdefault to stop reloading page-->
+                    <button type="button" id="close-form">Close</button><!--collapses div-->       
+                    </form>
+                   </div>
   </body>
 </html>

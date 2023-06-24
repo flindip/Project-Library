@@ -54,3 +54,14 @@ body{
 /**{
     border:solid red 2px;
 }*/
+
+.form{
+position:absolute;
+display:none;
+overflow:hidden;
+width:50%;
+height:50%;
+};
+
+/*default of form pop up, just need two values-overflow and display to change*/
+

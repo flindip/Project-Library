@@ -1,24 +1,29 @@
 let myLibrary=[{title: 'Slaughter House Five', author: 'Kurt Vonnegut', length: '295 pages', haveRead: 'Read'}];
 displayLibrary();
+const submit=document.getElementById('submit');
+submit.addEventListener('click', (e)=>{e.preventDefault(); submitBook();}); 
+const addBook=document.getElementById('open-form');
+addBook.addEventListener('click', (e)=>{
+ const form=document.getElementsByClassName('form');
+ for(const x of form){
+  const styles={
+    display:'flex',
+    overflow: 'visible'}
+Object.assign(x.style, styles);
+ }  
+});
 
+const closeForm=document.getElementById('close-form');
+closeForm.addEventListener('click', (e)=>{
+  const form=document.getElementsByClassName('form');
+ for(const x of form){
+  const styles={
+    display:'none',
+    overflow: 'hidden'}
+Object.assign(x.style, styles);
+ }})
 
-
-
-
-/*function delButton(){
-const del=document.getElementsByClassName('del');
-for(let i=0; i<del.length; i++){
-  del[i].addEventListener('click', (e)=>{
-  const value=del[i].getAttribute('data-location');
-  delBook(value);})
-}}*/ 
-
-
-/*const value=del[i].getAttribute('data-location');
-      delBook(value);*/
-      
-
-  function delBook(value){
+function delBook(value){
     const books=document.getElementsByClassName('book');
   for(let i=books.length-1;i>=0; i--){
         books[i].remove();
@@ -47,7 +52,6 @@ function displayLibrary(){
            const table=document.getElementById('library-table');
            const book=table.insertRow(-1);
             book.className='book';
-            /*book.dataset.location=myLibrary.indexOf(x);*/
             const title=book.insertCell(-1);
             title.textContent=`${x.title}`;
             const author=book.insertCell(-1);
@@ -58,24 +62,29 @@ function displayLibrary(){
             book.appendChild(status);
             status.className='status';
             status.setAttribute('type', 'button');
-            /*status.dataset.location=myLibrary.indexOf(x);*/
             status.addEventListener('click', (e)=>{
             const value=myLibrary.indexOf(x);
-            statBook(value);
-        })
-
+            statBook(value);})
             status.textContent=`${x.haveRead}`;
             const del=document.createElement('button');
             book.appendChild(del);
             del.className='del';
             del.setAttribute('type', 'button');
-            /*del.setAttribute('onclick', 'delButton()');*/
-            /*del.dataset.location=myLibrary.indexOf(x);*/
             del.textContent='Delete';
             del.addEventListener('click', (e)=>{
             const value=myLibrary.indexOf(x);
             delBook(value);})
           }};
+
+function submitBook(){
+const form=document.getElementById('book-form');
+const title=form.title.value;
+const author=form.author.value;
+const length=form.length.value;
+const haveRead=form.status.value;
+const book= new Book(title, author, length, haveRead);
+book.fileBook();
+}
 
 
 function Book(title, author, length, haveRead){
@@ -94,7 +103,6 @@ function Book(title, author, length, haveRead){
             const table=document.getElementById('library-table');
             const book=table.insertRow(-1);
             book.className='book';
-            /*book.dataset.location=myLibrary.indexOf(this);*/
             const title=book.insertCell(-1);
             title.textContent=`${this.title}`;
             const author=book.insertCell(-1);
@@ -105,22 +113,21 @@ function Book(title, author, length, haveRead){
             book.appendChild(status);
             status.className='status';
             status.setAttribute('type', 'button');
-            /*status.dataset.location=myLibrary.indexOf(this);*/
+            status.addEventListener('click', (e)=>{
+              const value=myLibrary.indexOf(this);
+              statBook(value);
+          })
             status.textContent=`${this.haveRead}`;
             const del=document.createElement('button');
             book.appendChild(del);
             del.className='del';
             del.setAttribute('type', 'button');
-            /*del.setAttribute('onclick', 'delButton()')*/
-           /*del.dataset.location=myLibrary.indexOf(this);*/
            del.textContent='Delete';
            del.addEventListener('click', (e)=>{
             const value=myLibrary.indexOf(this);
             delBook(value);})
            }
-           
- //new approach to delete button changes context of code//          
-//task 1-3finished//
+
 
 
    const book2=new Book('Weeping Willows', 'A.Dude', 300, 'No');
