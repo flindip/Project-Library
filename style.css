@@ -38,8 +38,8 @@ q:before, q:after {
 	content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+	border-collapse:collapse;
+	
 }
 /*CSS reset*/
 
@@ -48,20 +48,101 @@ html, body{
 
 }
 body{
-  
 
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	background-color:rgb(220, 190, 135);
 }
-/**{
-    border:solid red 2px;
-}*/
 
 .form{
 position:absolute;
 display:none;
 overflow:hidden;
 width:50%;
+min-width:300px;
 height:50%;
-};
+justify-content:center;
+align-items:center;
+background-color:rgb(81, 113, 116);
+top:40vh;
+color:white;
+font-size:1.5rem;
+}
+li{
+  display:flex;
+   flex-direction: column;
+  align-items:center; 
+  
+}
+ul>li:nth-of-type(1n+4){
+	flex-direction:row;
+	justify-content:center;
+}
+ul>h3, h5{
+	text-align:center;
+}
+#library-table{
+	width:90%;
+    text-align:center;
+	margin-top:5%;
+	font-size:1.5rem;
+	border-spacing:15px;
+	background-color:white;
+	min-width:850px;
+	
+	
+   }
+    thead{
+	font-size:3rem;
+	background-color:rgb(239, 93, 88);
+    }
+
+   tbody>tr:first-child{
+      font-size:2rem;
+      background-color:rgb(173, 106, 52);	
+	}
+
+	tr{
+		border: solid black 2px;
+		border-spacing:50px;
+	}
+
+	td, th{
+		border-right:solid black 2px;
+		padding:2%;
+		
+	}
+
+	tbody>tr:nth-of-type(2){
+         background:lightgray;}
+
+ .book>td:nth-of-type(4){
+width:fit-content;
+}
+button{
+width:100%;
+height:2rem;
+min-width:fit-content;
+white-space:nowrap;
+font-size:1rem;
+}
+.del{
+width:80%;
+}
+#open-form{
+width:25%;
+height:3rem;
+font-size:1.5rem;
+border-radius:15px;
+margin-top: 3%;
+}
+form>ul>li:last-child{
+	margin-top:30px;
+	gap:10px;
+}
+	
+
 
 /*default of form pop up, just need two values-overflow and display to change*/
 

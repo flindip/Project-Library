@@ -10,17 +10,18 @@
 <body>
    <table id="library-table">
         <thead>
-            <th>Library</th>
+            <th colspan="5">Library</th>
         </thead>
         <tbody>
             <tr>
-                <th>Books</th>
+                <th colspan="5">Books</th>
             </tr>
             <tr>
                  <th>Title</th>
                 <th>Author</th>
                 <th>Length</th>
                  <th>Status</th>
+                 <th></th>
                  </tr>
             </tbody>
             </table>
@@ -30,15 +31,19 @@
                     <form action="#" method="post" id="book-form"><!--onsubmit can call a function to create book variable-->
                     <ul>
                         <h3>Please enter the following:</h3><br>
-                        <li><label for="title">Title:</label><input type="text" id="title" name="title" value="title"></li>
-                        <li><label for="author">Author:</label><input type="text" id="author" name="author" value="author"></li>
-                        <li><label for="length">Length (number of pages):</label><input type="number" id="length" name="length" value="length" min="0"></li>
+                        <li><label for="title">Title:</label><input type="text" id="title" name="title" ></li>
+                        <li><label for="author">Author:</label><input type="text" id="author" name="author"></li>
+                        <li><label for="length">Length:</label><input type="number" id="length" name="length" min="0"></li><br>
                         <h5>Have you read the book?</h5><!--radio buttons for status-->
+                        <li>
                         <label for="status-y">Yes</label><input type="radio" id="status-y" name="status" value="Yes">
                         <label for="status-n">No</label><input type="radio" id="status-n" name="status" value="No">
-                    </ul>
+                        </li>
+                       <li>
                     <button type="submit" id="submit" >Submit</button><!--submit button, might have to make another div container for flex, preventdefault to stop reloading page-->
-                    <button type="button" id="close-form">Close</button><!--collapses div-->       
+                    <button type="button" id="close-form">Close</button>
+                    </li><!--collapses div-->
+                    </ul>       
                     </form>
                    </div>
   </body>

@@ -1,4 +1,4 @@
-let myLibrary=[{title: 'Slaughter House Five', author: 'Kurt Vonnegut', length: '295 pages', haveRead: 'Read'}];
+let myLibrary=[{title: 'Slaughter House Five', author: 'Kurt Vonnegut', length: '190 pages', haveRead: 'Read'}];
 displayLibrary();
 const submit=document.getElementById('submit');
 submit.addEventListener('click', (e)=>{e.preventDefault(); submitBook();}); 
@@ -12,7 +12,6 @@ addBook.addEventListener('click', (e)=>{
 Object.assign(x.style, styles);
  }  
 });
-
 const closeForm=document.getElementById('close-form');
 closeForm.addEventListener('click', (e)=>{
   const form=document.getElementsByClassName('form');
@@ -59,7 +58,8 @@ function displayLibrary(){
             const length=book.insertCell(-1);
             length.textContent=`${x.length}`;
             const status=document.createElement('button');
-            book.appendChild(status);
+            const statusPlace=book.insertCell(-1);
+            statusPlace.appendChild(status);
             status.className='status';
             status.setAttribute('type', 'button');
             status.addEventListener('click', (e)=>{
@@ -109,8 +109,9 @@ function Book(title, author, length, haveRead){
             author.textContent=`${this.author}`;
             const length=book.insertCell(-1);
             length.textContent=`${this.length}`;
-            const status=document.createElement('button');
-            book.appendChild(status);
+            const status=document.createElement('button');   
+           const statusPlace=book.insertCell(-1);
+            statusPlace.appendChild(status);
             status.className='status';
             status.setAttribute('type', 'button');
             status.addEventListener('click', (e)=>{
@@ -130,7 +131,6 @@ function Book(title, author, length, haveRead){
 
 
 
-   const book2=new Book('Weeping Willows', 'A.Dude', 300, 'No');
+  
+   const book2=new Book('Lord of the Rings', 'JRR Tolkien', 1178, 'Yes');
    book2.fileBook();
-   const book3=new Book('Lord of the Rings', 'JRR Tolkien', 400, 'Yes');
-   book3.fileBook();
